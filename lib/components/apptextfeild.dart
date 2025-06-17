@@ -10,6 +10,8 @@ class AppTextFeild extends StatelessWidget {
   final double? size;
   final Color? iconColor;
   final bool? isObscure;
+  final Color? textColor;
+  final bool? isTextCenter;
 
   const AppTextFeild({
     super.key,
@@ -20,7 +22,9 @@ class AppTextFeild extends StatelessWidget {
     this.maxlines,
     this.size,
     this.iconColor,
-    this.isObscure
+    this.isObscure,
+    this.textColor,
+    this.isTextCenter
   });
 
   @override
@@ -49,12 +53,14 @@ class AppTextFeild extends StatelessWidget {
               controller: controller,
               cursorColor: appTextColor,
               obscureText: isObscure ?? false,
+              textAlign: isTextCenter == null ? TextAlign.start :  TextAlign.center,
               decoration: InputDecoration(
                 hintText: text,
                 hintStyle: TextStyle(
                   fontWeight: FontWeight.w400,
-                  color: Colors.grey,
-                  fontSize: size ?? 16
+                  color: textColor ?? Colors.grey ,
+                  fontSize: size ?? 16,
+
                 ),
                 border: InputBorder.none,
                 isCollapsed: true,

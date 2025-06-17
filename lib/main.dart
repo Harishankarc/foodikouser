@@ -9,6 +9,7 @@ import 'package:fudikoclient/screens/auth/otp.dart';
 import 'package:fudikoclient/screens/auth/register.dart';
 import 'package:fudikoclient/screens/home/homepage.dart';
 import 'package:fudikoclient/screens/splashscreen/splashscreen.dart';
+import 'package:fudikoclient/screens/tabs/mainnav.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         fontFamily: 'Inter',
       ),
-      home: HomePage(),
+      home: MainNavPage(),
     );
   }
 }
