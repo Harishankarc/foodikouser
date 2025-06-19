@@ -12,6 +12,8 @@ class AppTextFeild extends StatelessWidget {
   final bool? isObscure;
   final Color? textColor;
   final bool? isTextCenter;
+  final VoidCallback? iconOnTap;
+  final bool? isreadonly;
 
   const AppTextFeild({
     super.key,
@@ -24,7 +26,9 @@ class AppTextFeild extends StatelessWidget {
     this.iconColor,
     this.isObscure,
     this.textColor,
-    this.isTextCenter
+    this.isTextCenter,
+    this.iconOnTap,
+    this.isreadonly
   });
 
   @override
@@ -45,22 +49,29 @@ class AppTextFeild extends StatelessWidget {
       ),
       child: Row(
         children: [
-          icon != null ? Icon(icon, color: iconColor ??Colors.grey) : SizedBox.shrink(),
+          icon != null
+              ? GestureDetector(
+                onTap: iconOnTap,
+                  child: Icon(icon, color: iconColor ?? Colors.grey),
+                )
+              : SizedBox.shrink(),
           SizedBox(width: 12),
           Expanded(
             child: TextField(
+              readOnly: isreadonly ?? false,
               maxLines: maxlines ?? 1,
               controller: controller,
               cursorColor: appTextColor,
               obscureText: isObscure ?? false,
-              textAlign: isTextCenter == null ? TextAlign.start :  TextAlign.center,
+              textAlign: isTextCenter == null
+                  ? TextAlign.start
+                  : TextAlign.center,
               decoration: InputDecoration(
                 hintText: text,
                 hintStyle: TextStyle(
                   fontWeight: FontWeight.w400,
-                  color: textColor ?? Colors.grey ,
+                  color: textColor ?? Colors.grey,
                   fontSize: size ?? 16,
-
                 ),
                 border: InputBorder.none,
                 isCollapsed: true,
@@ -68,7 +79,9 @@ class AppTextFeild extends StatelessWidget {
               ),
             ),
           ),
-          suffixIcon != null ? Icon(suffixIcon, color: Colors.grey,size: 40,) : SizedBox.shrink(),
+          suffixIcon != null
+              ? Icon(suffixIcon, color: Colors.grey, size: 40)
+              : SizedBox.shrink(),
         ],
       ),
     );

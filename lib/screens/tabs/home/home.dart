@@ -3,8 +3,9 @@ import 'package:fudikoclient/components/appfilterdropdown.dart';
 import 'package:fudikoclient/components/appsearchbar.dart';
 import 'package:fudikoclient/components/apptext.dart';
 import 'package:fudikoclient/screens/tabs/components/restaurantCard.dart';
+import 'package:fudikoclient/screens/tabs/home/addnumberofpeople.dart';
 import 'package:fudikoclient/screens/tabs/home/filterbottommodal.dart';
-import 'package:fudikoclient/screens/tabs/home/restaurantProfile.dart';
+import 'package:fudikoclient/screens/tabs/home/rating.dart';
 import 'package:fudikoclient/screens/tabs/home/timebottommodal.dart';
 
 class Home extends StatefulWidget {
@@ -17,97 +18,79 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   bool isClicked = false;
   bool isOpen = false;
+  bool isBookingModalOpen = false;
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
-      body: isClicked
-          ? const RestaurantProfile()
-          : Stack(
-              children: [
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 30,
-                        vertical: 30,
-                      ),
-                      child: const AppSearchBar(),
-                    ),
-                    Expanded(
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            _discountBuilder(),
-                            _mapBuilder(),
-                            _dropDownBuilder(),
-                            ListView.builder(
-                              itemCount: 5,
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemBuilder: (context, index) => GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    isClicked = true;
-                                  });
-                                },
-                                child: const RestaurantCard(),
-                              ),
-                            ),
-                          ],
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 30,
+                ),
+                child: const AppSearchBar(),
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      _discountBuilder(),
+                      _mapBuilder(),
+                      _dropDownBuilder(),
+                      ListView.builder(
+                        itemCount: 5,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) => GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isClicked = true;
+                            });
+                          },
+                          child: RestaurantCard(
+                            onRatingOnClick: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => RatingPage(),
+                                ),
+                              );
+                            },
+                            onBoxClicked: () {
+                              setState(() {
+                                isBookingModalOpen = !isBookingModalOpen;
+                              });
+                              if (isBookingModalOpen) {
+                                showModalBottomSheet(
+                                  backgroundColor: Colors.white,
+                                  context: context,
+                                  isScrollControlled: true,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(25),
+                                    ),
+                                  ),
+                                  builder: (context) {
+                                    return NumberOfPeopleModal();
+                                  },
+                                );
+                              }
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                // if(isOpen)
-                //   AnimatedPositioned(
-                //     duration: const Duration(milliseconds: 300),
-                //     curve: Curves.easeOut,
-                //     left: 0,
-                //     right: 0,
-                //     bottom: isOpen ? 0 : -screenHeight * 0.5,
-                //     height: screenHeight * 0.5,
-                //     child: Container(
-                //       padding: const EdgeInsets.symmetric(
-                //         horizontal: 20,
-                //         vertical: 16,
-                //       ),
-                //       decoration: const BoxDecoration(
-                //         color: Colors.white,
-                //         borderRadius: BorderRadius.vertical(
-                //           top: Radius.circular(25),
-                //         ),
-                //         boxShadow: [
-                //           BoxShadow(
-                //             color: Colors.black26,
-                //             blurRadius: 10,
-                //             offset: Offset(0, -4),
-                //           ),
-                //         ],
-                //       ),
-                //       child: Column(
-                //         children: [
-                //           Container(
-                //             width: 40,
-                //             height: 5,
-                //             decoration: BoxDecoration(
-                //               color: Colors.grey[300],
-                //               borderRadius: BorderRadius.circular(10),
-                //             ),
-                //           ),
-                //           const SizedBox(height: 16),
-                //           const Text(
-                //             "Filter Content Here",
-                //           ),
-                //         ],
-                //       ),
-                //     ),
-                //   ),
-              ],
-            ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 

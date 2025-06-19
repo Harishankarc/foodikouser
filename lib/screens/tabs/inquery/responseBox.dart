@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:fudikoclient/components/appbutton.dart';
 import 'package:fudikoclient/components/apptext.dart';
-import 'package:fudikoclient/screens/tabs/profile/restaurantProfile.dart';
-import 'package:fudikoclient/screens/tabs/reservation/qrcoupon.dart';
-import 'package:fudikoclient/screens/tabs/reservation/verifiedModal.dart';
 import 'package:fudikoclient/utils/constants.dart';
 
-class ReservationBox extends StatelessWidget {
-  final VoidCallback? onCancelTap;
-  const ReservationBox({super.key,this.onCancelTap});
+class ResponseBox extends StatelessWidget {
+  final VoidCallback onCancelTap;
+  final VoidCallback onAcceptTap;
+  final VoidCallback viewRequestClick;
+  const ResponseBox({super.key, required this.onCancelTap, required this.onAcceptTap, required this.viewRequestClick});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: GestureDetector(
-        onTap: (){
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => QrCoupon()),
-          );
+        onTap: () {
+
         },
         child: Container(
           width: double.infinity,
@@ -52,6 +48,7 @@ class ReservationBox extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: appTextColor3,
                           ),
+
                           const SizedBox(height: 10),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,151 +67,103 @@ class ReservationBox extends StatelessWidget {
                                         text: 'Bollywood Restaurant',
                                         style: TextStyle(
                                           fontSize: 15,
-                                          fontWeight: FontWeight.w900,
-                                          color: appTextColor5,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: ' Per Person',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500,
-                                          color: appTextColor5,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.card_giftcard,
-                                color: appTextColor5,
-                                size: 18,
-                              ),
-                              const SizedBox(width: 5),
-                              Flexible(
-                                child: RichText(
-                                  text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: '25%',
-                                        style: TextStyle(
-                                          fontSize: 15,
                                           fontWeight: FontWeight.w700,
-                                          color: appTextColor5,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: ' offer for entire menu',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500,
-                                          color: appTextColor5,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(Icons.calendar_month, color: appTextColor5, size: 18),
-                              const SizedBox(width: 5),
-                              Flexible(
-                                child: RichText(
-                                  text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: 'April 12 ',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w700,
-                                          color: appTextColor5,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: '- 2:30 pm',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500,
-                                          color: appTextColor5,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.calendar_month,
-                                color: appTextColor5,
-                                size: 18,
-                              ),
-                              const SizedBox(width: 5),
-                              Flexible(
-                                child: RichText(
-                                  text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: '2 ',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w700,
-                                          color: appTextColor5,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: 'Person',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w500,
-                                          color: appTextColor5,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.analytics,
-                                color: appTextColor5,
-                                size: 18,
-                              ),
-                              const SizedBox(width: 5),
-                              Flexible(
-                                child: RichText(
-                                  text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: 'Processing',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w700,
-                                          color: appLinkColor,
+                                          color: appLinkColor2,
                                         ),
                                       ),
 
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.wallet,
+                                color: appTextColor5,
+                                size: 18,
+                              ),
+                              const SizedBox(width: 5),
+                              Flexible(
+                                child: RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: '950 ',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w700,
+                                          color: appTextColor5,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: 'Per Person',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500,
+                                          color: appTextColor5,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.discount,
+                                color: appTextColor5,
+                                size: 18,
+                              ),
+                              const SizedBox(width: 5),
+                              Expanded(
+                                child: RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text:"5% on extra drinks",
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500,
+                                          color: appTextColor5,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.message,
+                                color: appTextColor5,
+                                size: 18,
+                              ),
+                              const SizedBox(width: 5),
+                              Flexible(
+                                child: RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'If you have more than 50 people, we can offer you a price of 850 per head.',
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.black,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -247,42 +196,54 @@ class ReservationBox extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     GestureDetector(
-                      onTap: onCancelTap,
-                      child: AppText(
-                        text: "Cancel",
-                        size: 15,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.red,
+                      onTap: viewRequestClick,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(Icons.manage_search_sharp, size: 12, color: appLinkColor2),
+                          SizedBox(width: 5),
+                          AppText(
+                            text: "View Request",
+                            size: 11,
+                            fontWeight: FontWeight.w400,
+                            color: appLinkColor2,
+                          ),
+                        ],
                       ),
                     ),
                     const SizedBox(width: 20),
-                    SizedBox(
-                      width: 100,
-                      height:50,
-                      child: AppButton(
-                        text: "Coupon",
-                        onPressed: () {
-                          showModalBottomSheet(
-                            backgroundColor: Colors.white,
-                            context: context,
-                            isScrollControlled: true,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(25),
-                              ),
-                            ),
-                            builder: (context) {
-                              return VerifiedModal();
-                            },
-                          );
-                        },
-                        size: 15,
-                        borderRadius: 15,
-                      ),
+                    Column(
+                      children: [
+                        SizedBox(
+                          width: 100,
+                          height: 30,
+                          child: AppButton(
+                            text: "Decline",
+                            onPressed: onCancelTap,
+                            size: 11,
+                            borderRadius: 10,
+                            bgColor1: Colors.red,
+                            bgColor2: Colors.red,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        SizedBox(
+                          width: 100,
+                          height: 30,
+                          child: AppButton(
+                            text: "Accept",
+                            onPressed: onAcceptTap,
+                            size: 11,
+                            borderRadius: 10,
+                            bgColor1: Colors.green,
+                            bgColor2: Colors.green,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

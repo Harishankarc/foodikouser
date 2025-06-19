@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fudikoclient/screens/tabs/bottomnav.dart';
-import 'package:fudikoclient/screens/tabs/favorite.dart';
+import 'package:fudikoclient/screens/tabs/favorite/favorite.dart';
 import 'package:fudikoclient/screens/tabs/home/home.dart';
-import 'package:fudikoclient/screens/tabs/profile.dart';
+import 'package:fudikoclient/screens/tabs/inquery/inquery.dart';
+import 'package:fudikoclient/screens/tabs/profile/restaurantProfile.dart';
 import 'package:fudikoclient/screens/tabs/reservation/reservation.dart';
 import 'package:fudikoclient/utils/constants.dart';
 
@@ -33,9 +34,10 @@ class _MainNavPageState extends State<MainNavPage> {
   Widget build(BuildContext context) {
     screens = [
       Home(),
+      Inquery(),
       Reservation(),
       Favorite(),
-      Profile()
+      RestaurantProfile()
     ];
     return SafeArea(
       child: Scaffold(

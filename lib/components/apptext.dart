@@ -26,7 +26,8 @@ class AppText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-
+      softWrap: true,
+      overflow: TextOverflow.visible,
       text,
       textAlign: isCentered ?? false ? TextAlign.center : TextAlign.start,
       style: TextStyle(

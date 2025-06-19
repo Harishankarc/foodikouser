@@ -6,36 +6,124 @@ import 'package:fudikoclient/screens/home/components/restaurantBox.dart';
 import 'package:fudikoclient/screens/home/components/takeawayBox.dart';
 import 'package:fudikoclient/utils/constants.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final PageController _pageController = PageController();
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appSecondaryBackgroundColor,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                _navBar(),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                     SizedBox(height: 40),
-                    RestaurantBox(),
-                    SizedBox(height: 20),
-                    BanquetBox(),
-                    SizedBox(height: 20),
-                    CateringBox(),
-                    SizedBox(height: 20),
-                    TakeAwayBox(),
-                  ],
-                )
-              ],
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              child: _navBar(),
             ),
-          ),
+
+            Expanded(
+              child: Column(
+                children: [
+                  Expanded(
+                    child: PageView.builder(
+                      controller: _pageController,
+                      itemCount: 2,
+                      onPageChanged: (index) {
+                        setState(() {
+                          _currentIndex = index;
+                        });
+                      },
+                      itemBuilder: (context, index) {
+                        return SingleChildScrollView(
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              left: 30,
+                              right: 30,
+                              top: 10,
+                            ),
+                            child: Column(
+                              children: [
+                                if (index == 0) ...[
+                                  RestaurantBox(),
+                                  SizedBox(height: 20),
+                                  BanquetBox(),
+                                  SizedBox(height: 20),
+                                  CateringBox(),
+                                  SizedBox(height: 20),
+                                  TakeAwayBox(),
+                                ] else ...[
+                                  ListView.builder(
+                                    shrinkWrap: true,
+                                    physics: NeverScrollableScrollPhysics(),
+                                    itemCount: 5,
+                                    itemBuilder: (context, index) {
+                                      return Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              AppText(
+                                                text: "10 minutes ago",
+                                                size: 15,
+                                                fontWeight: FontWeight.w500,
+                                                color: appTextColor2,
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(height: 10),
+                                          Image.asset(
+                                            'assets/images/offerimage.png',
+                                            height: 600,
+                                            fit: BoxFit.contain,
+                                          ),
+                                          SizedBox(height: 20),
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        2, // Number of pages
+                        (index) => AnimatedContainer(
+                          duration: Duration(milliseconds: 300),
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          width: _currentIndex == index ? 12 : 8,
+                          height: _currentIndex == index ? 12 : 8,
+                          decoration: BoxDecoration(
+                            color: _currentIndex == index
+                                ? Colors.orange
+                                : Colors.grey,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -66,8 +154,6 @@ class HomePage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   AppText(
                     text: "City",
@@ -78,7 +164,6 @@ class HomePage extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(Icons.location_on, size: 15, color: appTextColor3),

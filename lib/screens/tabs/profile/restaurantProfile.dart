@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fudikoclient/components/appbutton.dart';
 import 'package:fudikoclient/components/apptext.dart';
-import 'package:fudikoclient/screens/tabs/home/rating.dart';
+import 'package:fudikoclient/screens/tabs/profile/menu.dart';
 import 'package:fudikoclient/utils/constants.dart';
 
 class RestaurantProfile extends StatefulWidget {
@@ -13,15 +13,15 @@ class RestaurantProfile extends StatefulWidget {
 
 class _RestaurantProfileState extends State<RestaurantProfile> {
   bool isRatingOnClick = false;
-
+  bool isMenuOpen = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: isRatingOnClick
-              ? RatingPage()
-              : Column(
+        body: isMenuOpen
+            ? Menu()
+            : SingleChildScrollView(
+          child: Column(
                   children: [
                     Stack(
                       children: [
@@ -428,10 +428,17 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                       ),
                     ),
                     SizedBox(
-                      width: 250,
+                      width: 220,
+                      height: 45,
                       child: AppButton(
                         text: "View Menu",
-                        onPressed: () {},
+                        size: 15,
+                        borderRadius: 10,
+                        onPressed: () {
+                          setState(() {
+                            isMenuOpen = !isMenuOpen;
+                          });
+                        },
                         icon: Icons.fastfood,
                       ),
                     ),

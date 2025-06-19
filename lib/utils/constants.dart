@@ -13,5 +13,6 @@ final Color appButtonColor2 = Color(0xFF987743);
 final Color appToggleColor = Color(0xFF00A52C);
 final Color appToggleColorLight = Color.fromARGB(120, 0, 165, 44);
 final Color appLinkColor = Color(0xFF001FBC);
+final Color appLinkColor2 = Color(0xFF085692);
 final Color appLangBg = Color.fromARGB(29, 122, 13, 75);
 final Color menuUploadBoxColor = Color.fromARGB(132, 235, 219, 153);

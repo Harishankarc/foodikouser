@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fudikoclient/utils/constants.dart';
 
 class RestaurantCard extends StatelessWidget {
-  const RestaurantCard({super.key});
+  final VoidCallback? onRatingOnClick;
+  final VoidCallback? onBoxClicked;
+  const RestaurantCard({super.key,this.onRatingOnClick,this.onBoxClicked});
 
   @override
   Widget build(BuildContext context) {
@@ -14,73 +16,76 @@ class RestaurantCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-                child: Image.asset(
-                  'assets/images/restaurantBanner.png',
-                  height: 180,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
+          GestureDetector(
+            onTap: onBoxClicked,
+            child: Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                  child: Image.asset(
+                    'assets/images/restaurantBanner.png',
+                    height: 180,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
 
-              Positioned(
-                top: 10,
-                left: 10,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Row(
-                    children: const [
-                      Icon(Icons.location_on, size: 14, color: Colors.white),
-                      SizedBox(width: 4),
-                      Text(
-                        '12 km',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                Positioned(
+                  top: 10,
+                  left: 10,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.orange,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      children: const [
+                        Icon(Icons.location_on, size: 14, color: Colors.white),
+                        SizedBox(width: 4),
+                        Text(
+                          '12 km',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Positioned(
-                top: 10,
-                right: 10,
-                child: Icon(Icons.favorite, color: Colors.orange),
-              ),
-              Positioned(
-                bottom: 10,
-                left: 20,
-                child: RichText(
-                  text: const TextSpan(
-                    children: [
-                      TextSpan(
-                        text: "Bollywood ",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
+                Positioned(
+                  top: 10,
+                  right: 10,
+                  child: Icon(Icons.favorite, color: Colors.orange),
+                ),
+                Positioned(
+                  bottom: 10,
+                  left: 20,
+                  child: RichText(
+                    text: const TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "Bollywood ",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                      TextSpan(
-                        text: "Restaurant",
-                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400, color: Colors.white),
-                      ),
-                    ],
+                        TextSpan(
+                          text: "Restaurant",
+                          style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400, color: Colors.white),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
 
           Padding(
@@ -110,12 +115,15 @@ class RestaurantCard extends StatelessWidget {
                         color: Colors.orange,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: const Row(
-                        children: [
-                          Icon(Icons.star, size: 14, color: Colors.white),
-                          SizedBox(width: 4),
-                          Text('4.8', style: TextStyle(color: Colors.white)),
-                        ],
+                      child: GestureDetector(
+                        onTap: onRatingOnClick,
+                        child: const Row(
+                          children: [
+                            Icon(Icons.star, size: 14, color: Colors.white),
+                            SizedBox(width: 4),
+                            Text('4.8', style: TextStyle(color: Colors.white)),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -161,14 +169,13 @@ class RestaurantCard extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(right: 5),
                   child: Container(
-                    width: 150,
+                    width: 100,
                     decoration: BoxDecoration(
                       color: Colors.green.shade700,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Stack(
                       children: [
-
                         Padding(
                           padding: const EdgeInsets.all(10),
                           child: Column(
@@ -177,7 +184,7 @@ class RestaurantCard extends StatelessWidget {
                               Text(
                                 discounts[index],
                                 style: const TextStyle(
-                                  fontSize: 25,
+                                  fontSize: 20,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -186,7 +193,7 @@ class RestaurantCard extends StatelessWidget {
                                 texts[index],
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
-                                  fontSize: 12,
+                                  fontSize: 10,
                                   color: Colors.white,
                                 ),
                               ),
@@ -207,7 +214,7 @@ class RestaurantCard extends StatelessWidget {
                                 child:  Text(
                                 times[index],
                                 style: const TextStyle(
-                                  fontSize: 12,
+                                  fontSize: 10,
                                   color: Colors.green,
                                   fontWeight: FontWeight.w600,
                                 ),

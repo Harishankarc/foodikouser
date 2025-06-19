@@ -1,15 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fudikoclient/screens/about/about1.dart';
-import 'package:fudikoclient/screens/about/about2.dart';
-import 'package:fudikoclient/screens/about/about3.dart';
-import 'package:fudikoclient/screens/about/aboutLayout.dart';
-import 'package:fudikoclient/screens/auth/info.dart';
-import 'package:fudikoclient/screens/auth/login.dart';
-import 'package:fudikoclient/screens/auth/otp.dart';
-import 'package:fudikoclient/screens/auth/register.dart';
-import 'package:fudikoclient/screens/home/homepage.dart';
-import 'package:fudikoclient/screens/splashscreen/splashscreen.dart';
 import 'package:fudikoclient/screens/tabs/mainnav.dart';
+import 'package:fudikoclient/utils/constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +17,7 @@ class MyApp extends StatelessWidget {
 
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: appTextColor),
         fontFamily: 'Inter',
       ),
       home: MainNavPage(),

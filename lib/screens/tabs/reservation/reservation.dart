@@ -4,7 +4,6 @@ import 'package:fudikoclient/components/appfilterdropdown.dart';
 import 'package:fudikoclient/components/apptext.dart';
 import 'package:fudikoclient/components/apptextfeild.dart';
 import 'package:fudikoclient/screens/tabs/reservation/reservationBox.dart';
-import 'package:fudikoclient/screens/tabs/reservation/reservationDelete.dart';
 import 'package:fudikoclient/utils/constants.dart';
 
 class Reservation extends StatefulWidget {
@@ -25,7 +24,6 @@ class _ReservationState extends State<Reservation> {
       backgroundColor: appSecondaryBackgroundColor,
       body: Stack(
         children: [
-          // Main content
           SingleChildScrollView(
             child: Column(
               children: [
