@@ -1,6 +1,6 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/components/appbutton.dart';
 import 'package:fudikoclient/components/apptext.dart';
 import 'package:fudikoclient/utils/constants.dart';
@@ -14,12 +14,12 @@ class QrCoupon extends StatelessWidget {
       child: Scaffold(
         backgroundColor: appSecondaryBackgroundColor,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+          padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             child: ConstrainedBox(
               constraints: BoxConstraints(
-                minHeight: MediaQuery.of(context).size.height  - 150,
+                minHeight: MediaQuery.of(context).size.height  - 150.h,
               ),
               child: IntrinsicHeight(
                 child: Column(
@@ -29,7 +29,7 @@ class QrCoupon extends StatelessWidget {
                       children: [
                         GestureDetector(onTap: (){
                           Navigator.pop(context);
-                        },child: Icon(Icons.close, color: appTextColor, size: 30)),
+                        },child: Icon(Icons.close, color: appTextColor, size: 30.r)),
                       ],
                     ),
                     Expanded(
@@ -46,34 +46,34 @@ class QrCoupon extends StatelessWidget {
                             children: [
                               Image.asset(
                                 "assets/images/couponbody.png",
-                                height: 500,
-                                width: 300,
+                                height: 500.h,
+                                width: 300.w,
                                 fit: BoxFit.contain,
                               ),
                               Positioned(
-                                top: 80,
-                                left: 45,
+                                top: 80.h,
+                                left: 45.w,
                                 child: Image.asset(
                                   'assets/images/qrcode.png',
-                                  height: 200,
-                                  width: 200,
+                                  height: 200.h,
+                                  width: 200.w,
                                 ),
                               ),
                               Positioned(
-                                bottom: 100,
-                                left: 95,
+                                bottom: 120.h,
+                                left: 100.w,
                                 child: Column(
                                   children: [
-                                    AppText(text: "APR 2", size: 16, fontWeight: FontWeight.w400,color: appTextColor3,),
-                                    SizedBox(height: 10,),
-                                    SizedBox(width: 100,height: 40,child: AppButton(text: "02:30PM", onPressed: (){},size: 15,))
+                                    AppText(text: "APR 2", size: 16 , fontWeight: FontWeight.w400,color: appTextColor3,),
+                                    SizedBox(height: 10.h,),
+                                    SizedBox(width: 100.w,height: 40.h,child: AppButton(text: "02:30PM", onPressed: (){},size: 15,))
                                   ],
                                 ),
                               )
                             ],
                           ),
                           AppText(text: "35% offer for entire menu ", size: 20, fontWeight: FontWeight.w700,color: appTextColor2,),
-                          SizedBox(height: 10,),
+                          SizedBox(height: 10.h,),
                           AppText(text: "2 Person  ", size: 20, fontWeight: FontWeight.w700,color: appTextColor2,)
                         ],
                       ),

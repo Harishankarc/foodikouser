@@ -38,7 +38,6 @@ class MenuCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 20), // Spacing for switch
                       AppText(
                         text: "Chicken Biriyani",
                         size: 18,
@@ -59,6 +58,7 @@ class MenuCard extends StatelessWidget {
                         size: 10,
                         fontWeight: FontWeight.w400,
                         color: Colors.black87,
+                        lineSpacing: 1.2,
                       ),
                     ],
                   ),

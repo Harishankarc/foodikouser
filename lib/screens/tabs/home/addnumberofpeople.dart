@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/components/appbutton.dart';
 import 'package:fudikoclient/components/apptext.dart';
 import 'package:fudikoclient/utils/constants.dart';
@@ -20,28 +21,27 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              width: 40,
-              height: 5,
+              width: 40.w,
+              height: 5.h,
               decoration: BoxDecoration(
                 color: Colors.grey[300],
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16.h),
 
             Container(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height / 3.5,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
-              padding: const EdgeInsets.all(16),
+              padding:  EdgeInsets.all(16.w),
               child: !isBookingClicked ? _addNoOfPeople() : _confirmBox(),
             ),
           ],
@@ -53,16 +53,8 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
   Widget _confirmBox() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [GestureDetector(
-            onTap: (){
-              Navigator.pop(context);
-            },
-            child: Icon(Icons.close, color: appTextColor, size: 25))],
-        ),
-        SizedBox(height: 10),
         SizedBox(
           width: double.infinity,
           child: Column(
@@ -70,18 +62,19 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
             children: [
               Image.asset(
                 'assets/images/checked.png',
-                height: 60,
-                width: 60,
+                height: 50.h,
+                width: 50.w,
                 fit: BoxFit.contain,
               ),
-              SizedBox(height: 20),
-              AppText(text: "Booking Successful!", size: 30, fontWeight: FontWeight.w500,color: appTextColor3,),
-              SizedBox(height: 20),
-              AppText(text: "You have received a coupon for a 40% discount on the entire menu for today at 2:00 PM", size: 15, fontWeight: FontWeight.w400,color: appTextColor2,isCentered: true,lineSpacing: 1.5,),
+              SizedBox(height: 20.h),
+              AppText(text: "Booking Successful!", size: 25, fontWeight: FontWeight.w500,color: appTextColor3,),
+              SizedBox(height: 20.h),
+              AppText(text: "You have received a coupon for a 40% discount on the entire menu for today at 2:00 PM", size: 12, fontWeight: FontWeight.w400,color: appTextColor2,isCentered: true,lineSpacing: 1.2,),
 
             ],
           ),
         ),
+        SizedBox(height: 20.h),
       ],
     );
   }
@@ -98,7 +91,7 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
             },
             child: Icon(Icons.close, color: appTextColor, size: 25))],
         ),
-        SizedBox(height: 10),
+        SizedBox(height: 10.h),
         SizedBox(
           width: double.infinity,
           child: Column(
@@ -111,13 +104,13 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
                 color: appTextColor2,
                 isCentered: true,
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 100,
-                    height: 100,
+                    width: 50.w,
+                    height: 50.h,
                     decoration: BoxDecoration(
                       color: Colors.grey[200],
                       borderRadius: BorderRadius.only(
@@ -136,15 +129,15 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
                     child: Center(
                       child: AppText(
                         text: "-",
-                        size: 50,
+                        size: 30.sp,
                         fontWeight: FontWeight.bold,
                         color: appTextColor2,
                       ),
                     ),
                   ),
                   Container(
-                    width: 150,
-                    height: 100,
+                    width: 100.w,
+                    height: 50.h,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       boxShadow: [
@@ -159,15 +152,15 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
                     child: Center(
                       child: AppText(
                         text: "5",
-                        size: 50,
+                        size: 30.sp,
                         fontWeight: FontWeight.bold,
                         color: appTextColor2,
                       ),
                     ),
                   ),
                   Container(
-                    width: 100,
-                    height: 100,
+                    width: 50.w,
+                    height: 50.h,
                     decoration: BoxDecoration(
                       color: Colors.grey[200],
                       borderRadius: BorderRadius.only(
@@ -186,7 +179,7 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
                     child: Center(
                       child: AppText(
                         text: "+",
-                        size: 50,
+                        size: 30.sp,
                         fontWeight: FontWeight.bold,
                         color: appTextColor2,
                       ),
@@ -194,9 +187,10 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               SizedBox(
-                width: 200,
+                width: 200.w,
+                height: 50.h,
                 child: AppButton(
                   text: "Book",
                   onPressed: () {
@@ -204,6 +198,8 @@ class _NumberOfPeopleModalState extends State<NumberOfPeopleModal> {
                       isBookingClicked = !isBookingClicked;
                     });
                   },
+                  borderRadius: 10.r,
+                  size: 15,
                 ),
               ),
             ],

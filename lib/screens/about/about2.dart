@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/components/apptext.dart';
 import 'package:fudikoclient/utils/constants.dart';
 
@@ -20,13 +21,13 @@ class About2 extends StatelessWidget {
                   bottom: -120,
                   right: -120,
                   child: Container(
-                    width: 400,
-                    height: 400,
+                    width: 300.w,
+                    height: 300.h,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
                         color: Colors.grey.shade300,
-                        width: 30,
+                        width: 25.w,
                       ),
                     ),
                     clipBehavior: Clip.hardEdge,
@@ -37,8 +38,8 @@ class About2 extends StatelessWidget {
                   right: -100,
                   child: Image.asset(
                     'assets/images/pizza2.png',
-                    width: 400,
-                    height: 400,
+                    width: 300.w,
+                    height: 300.h,
                   ),
                 ),
               ],
@@ -62,7 +63,7 @@ class About2 extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     color: appTextColor6,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   AppText(
                     text: "From home parties to big ",
                     size: 20,
@@ -88,13 +89,13 @@ class About2 extends StatelessWidget {
               top: -100,
               right: -100,
               child: Container(
-                width: 350,
-                height: 350,
+                width: 350.w,
+                height: 350.h,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: Color.fromARGB(112, 249, 123, 13),
-                    width: 20,
+                    width: 20.w,
                   ),
                 ),
                 clipBehavior: Clip.hardEdge,
@@ -104,13 +105,13 @@ class About2 extends StatelessWidget {
               top: 100,
               left: -80,
               child: Container(
-                width: 150,
-                height: 150,
+                width: 150.w,
+                height: 150.h,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: Color.fromARGB(112, 249, 123, 13),
-                    width: 20,
+                    width: 20.w,
                   ),
                 ),
                 clipBehavior: Clip.hardEdge,
@@ -120,9 +121,9 @@ class About2 extends StatelessWidget {
               top: 0,
               right: 0,
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 40,
+                padding:  EdgeInsets.symmetric(
+                  horizontal: 20.w,
+                  vertical: 40.h,
                 ),
                 child: GestureDetector(
                   onTap: onPress,

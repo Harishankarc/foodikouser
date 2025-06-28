@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/components/appbutton.dart';
 import 'package:fudikoclient/components/apptext.dart';
 import 'package:fudikoclient/screens/tabs/profile/menu.dart';
@@ -25,11 +26,10 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                   children: [
                     Stack(
                       children: [
-                        // Background image
                         Image.asset(
                           'assets/images/restaurantBanner.png',
-                          height: 180,
-                          width: double.infinity,
+                          height: 180.h,
+                          width: double.infinity.w,
                           fit: BoxFit.cover,
                         ),
 
@@ -40,24 +40,24 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                         ),
 
                         Positioned(
-                          top: 30,
-                          right: 30,
-                          child: const Icon(
+                          top: 30.h,
+                          right: 30.w,
+                          child:  Icon(
                             Icons.favorite,
                             color: Colors.white,
-                            size: 30,
+                            size: 30.w,
                           ),
                         ),
 
                         Positioned(
-                          bottom: 20,
-                          right: 30,
+                          bottom: 20.h,
+                          right: 30.w,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               _badge(Icons.location_on, '12 km'),
-                              const SizedBox(height: 8),
+                              SizedBox(height: 8.h),
                               GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -71,24 +71,24 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                         ),
 
                         Positioned(
-                          left: 30,
-                          bottom: 20,
+                          left: 30.w,
+                          bottom: 20.h,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               AppText(
                                 text: "Bollywood",
-                                size: 32,
+                                size: 35,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
                               ),
                               AppText(
                                 text: "Restaurant",
-                                size: 20,
+                                size: 25,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.white,
                               ),
-                              const SizedBox(height: 8),
+                              SizedBox(height: 8.h),
                               Row(
                                 children: [
                                   const Icon(
@@ -96,10 +96,10 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                     size: 15,
                                     color: Colors.white,
                                   ),
-                                  const SizedBox(width: 4),
+                                  SizedBox(width: 4.w),
                                   AppText(
                                     text: "Ulitsa Serpukhovskiy Val-14",
-                                    size: 13,
+                                    size: 12,
                                     fontWeight: FontWeight.w400,
                                     color: Colors.white,
                                   ),
@@ -111,17 +111,17 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                       ],
                     ),
 
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
 
                     SizedBox(
-                      height: 180,
+                      height: 180.h,
                       child: ListView(
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
-                        padding: const EdgeInsets.only(
-                          left: 15,
-                          right: 15,
-                          bottom: 15,
+                        padding:  EdgeInsets.only(
+                          left: 15.w,
+                          right: 15.w,
+                          bottom: 15.h,
                         ),
                         children: List.generate(5, (index) {
                           final discounts = [
@@ -156,15 +156,16 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                           return Padding(
                             padding: const EdgeInsets.only(right: 5),
                             child: Container(
-                              width: 150,
+                              height: 100.h,
+                              width: 100.w,
                               decoration: BoxDecoration(
                                 color: Colors.green.shade700,
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(10.r),
                               ),
                               child: Stack(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.all(10),
+                                    padding:  EdgeInsets.all(10.r),
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
@@ -172,7 +173,7 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                         Text(
                                           discounts[index],
                                           style: const TextStyle(
-                                            fontSize: 25,
+                                            fontSize: 20,
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -185,19 +186,19 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                             color: Colors.white,
                                           ),
                                         ),
-                                        const Divider(
+                                         Divider(
                                           color: Colors.white,
                                           thickness: 1,
                                         ),
                                         Text(
                                           dates[index],
-                                          style: const TextStyle(
+                                          style:  TextStyle(
                                             fontSize: 10,
                                             color: Colors.white70,
                                           ),
                                         ),
                                         Container(
-                                          padding: const EdgeInsets.all(5),
+                                          padding:  EdgeInsets.all(5.r),
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius: BorderRadius.circular(
@@ -206,7 +207,7 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                           ),
                                           child: Text(
                                             times[index],
-                                            style: const TextStyle(
+                                            style:  TextStyle(
                                               fontSize: 12,
                                               color: Colors.green,
                                               fontWeight: FontWeight.w600,
@@ -217,11 +218,11 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                     ),
                                   ),
                                   Positioned(
-                                    bottom: 40,
-                                    right: -30,
+                                    bottom: 50.h,
+                                    right: -30.w,
                                     child: Container(
-                                      width: 50,
-                                      height: 50,
+                                      width: 50.w,
+                                      height: 50.h,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         shape: BoxShape.circle,
@@ -229,11 +230,11 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                     ),
                                   ),
                                   Positioned(
-                                    bottom: 40,
-                                    left: -30,
+                                        bottom: 50.h,
+                                    left: -30.w,
                                     child: Container(
-                                      width: 50,
-                                      height: 50,
+                                      width: 50.w,
+                                      height: 50.h,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
                                         shape: BoxShape.circle,
@@ -247,9 +248,9 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                         }),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 10.h),
                     SizedBox(
-                      height: 150,
+                      height: 150.h,
                       child: ListView.builder(
                         itemCount: 6,
                         shrinkWrap: true,
@@ -257,10 +258,10 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                         physics: BouncingScrollPhysics(),
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 5),
+                            padding:  EdgeInsets.symmetric(horizontal: 5.w),
                             child: Image.asset(
                               'assets/images/restaurantPic.png',
-                              height: 150,
+                              height: 150.h,
                               fit: BoxFit.cover,
                             ),
                           );
@@ -269,34 +270,25 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                     ),
 
                     Padding(
-                      padding: const EdgeInsets.all(20),
+                      padding:  EdgeInsets.all(20.r),
                       child: Container(
-                        padding: const EdgeInsets.all(16),
+                        padding:  EdgeInsets.all(16.r),
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(20.r),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.3),
-                              blurRadius: 10,
-                              offset: Offset(0, 4),
+                              blurRadius: 10.r,
+                              offset: Offset(0, 4.r),
                             ),
                           ],
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Icon(
-                                  Icons.edit_square,
-                                  size: 20,
-                                  color: Colors.black54,
-                                ),
-                              ],
-                            ),
+                            SizedBox(height: 10.h),
                             Row(
                               children: [
                                 AppText(
@@ -305,7 +297,7 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                   fontWeight: FontWeight.w600,
                                   color: appTextColor2,
                                 ),
-                                SizedBox(width: 10),
+                                SizedBox(width: 10.w),
                                 Expanded(
                                   child: Container(
                                     height: 0.5,
@@ -315,11 +307,11 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                top: 15,
-                                right: 10,
-                                left: 30,
-                                bottom: 15,
+                              padding:  EdgeInsets.only(
+                                top: 15.h,
+                                right: 10.w,
+                                left: 30.w,
+                                bottom: 15.h,
                               ),
                               child: AppText(
                                 text:
@@ -337,7 +329,7 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                   fontWeight: FontWeight.w600,
                                   color: appTextColor2,
                                 ),
-                                SizedBox(width: 10),
+                                SizedBox(width: 10.w),
                                 Expanded(
                                   child: Container(
                                     height: 0.5,
@@ -347,11 +339,11 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                top: 15,
-                                right: 10,
-                                left: 30,
-                                bottom: 15,
+                              padding:  EdgeInsets.only(
+                                top: 15.h,
+                                right: 10.w,
+                                left: 30.w,
+                                bottom: 15.h,
                               ),
                               child: AppText(
                                 text: "Chineese, Arabic, Indian,",
@@ -368,7 +360,7 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                   fontWeight: FontWeight.w600,
                                   color: appTextColor2,
                                 ),
-                                SizedBox(width: 10),
+                                SizedBox(width: 10.w),
                                 Expanded(
                                   child: Container(
                                     height: 0.5,
@@ -378,11 +370,11 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                top: 15,
-                                right: 10,
-                                left: 30,
-                                bottom: 15,
+                              padding:  EdgeInsets.only(
+                                top: 15.h,
+                                right: 10.w,
+                                left: 30.w,
+                                bottom: 15.h,
                               ),
                               child: AppText(
                                 text:
@@ -400,7 +392,7 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                                   fontWeight: FontWeight.w600,
                                   color: appTextColor2,
                                 ),
-                                SizedBox(width: 10),
+                                SizedBox(width: 10.w),
                                 Expanded(
                                   child: Container(
                                     height: 0.5,
@@ -410,11 +402,11 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                top: 15,
-                                right: 10,
-                                left: 30,
-                                bottom: 15,
+                              padding:  EdgeInsets.only(
+                                top: 15.h,
+                                right: 10.w,
+                                left: 30.w,
+                                bottom: 15.h,
                               ),
                               child: AppText(
                                 text: "+7 9856412878    +7 895624158",
@@ -428,21 +420,21 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
                       ),
                     ),
                     SizedBox(
-                      width: 220,
-                      height: 45,
+                      width: 150.w,
+                      height: 40.h,
                       child: AppButton(
                         text: "View Menu",
-                        size: 15,
-                        borderRadius: 10,
+                          size: 12,
+                        borderRadius: 10.r,
                         onPressed: () {
                           setState(() {
                             isMenuOpen = !isMenuOpen;
                           });
                         },
-                        icon: Icons.fastfood,
+                        // icon: Icons.fastfood,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                   ],
                 ),
         ),
@@ -452,17 +444,17 @@ class _RestaurantProfileState extends State<RestaurantProfile> {
 
   Widget _badge(IconData icon, String text) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      padding:  EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
       decoration: BoxDecoration(
         color: Colors.orange,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 14, color: Colors.white),
-          const SizedBox(width: 4),
-          Text(text, style: const TextStyle(color: Colors.white)),
+            Icon(icon, size: 10, color: Colors.white),
+          SizedBox(width: 4.w),
+          Text(text, style:  TextStyle(color: Colors.white)),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/components/apptext.dart';
 import 'package:fudikoclient/utils/constants.dart';
 
@@ -18,15 +19,15 @@ class About3 extends StatelessWidget {
               children: [
                 Positioned(
                   top: -120,
-                  left: -120,
+                  left: -150,
                   child: Container(
-                    width: 350,
-                    height: 350,
+                    width: 300.w,
+                    height: 300.h,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
                         color: Colors.grey.shade300,
-                        width: 30,
+                        width: 25.w,
                       ),
                     ),
                     clipBehavior: Clip.hardEdge,
@@ -34,11 +35,11 @@ class About3 extends StatelessWidget {
                 ),
                 Positioned(
                   top: -110,
-                  left: -80,
+                  left: -95,
                   child: Image.asset(
                     'assets/images/pizza3.png',
-                    width: 350,
-                    height: 350,
+                    width: 300.w,
+                    height: 300.h,
                   ),
                 ),
               ],
@@ -47,9 +48,9 @@ class About3 extends StatelessWidget {
               top: 0,
               right: 0,
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 40,
+                padding:  EdgeInsets.symmetric(
+                  horizontal: 20.w,
+                  vertical: 40.h,
                 ),
                 child: GestureDetector(
                   onTap: onPress,
@@ -80,7 +81,7 @@ class About3 extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     color: appTextColor6,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   AppText(
                     text: "From home parties to big",
                     size: 20,
@@ -106,13 +107,13 @@ class About3 extends StatelessWidget {
               top: 100,
               right: -50,
               child: Container(
-                width: 150,
-                height: 150,
+                width: 150.w,
+                height: 150.h,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: Color.fromARGB(112, 249, 123, 13),
-                    width: 20,
+                    width: 20.w,
                   ),
                 ),
                 clipBehavior: Clip.hardEdge,
@@ -122,13 +123,13 @@ class About3 extends StatelessWidget {
               bottom: -50,
               right: -50,
               child: Container(
-                width: 300,
-                height: 300,
+                width: 300.w,
+                height: 300.h,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: Color.fromARGB(112, 249, 123, 13),
-                    width: 20,
+                    width: 20.w,
                   ),
                 ),
                 clipBehavior: Clip.hardEdge,

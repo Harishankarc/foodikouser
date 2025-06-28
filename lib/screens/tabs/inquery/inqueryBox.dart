@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/components/appbutton.dart';
 import 'package:fudikoclient/components/apptext.dart';
 import 'package:fudikoclient/utils/constants.dart';
@@ -22,7 +23,7 @@ class InqueryBox extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(20.r),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.2),
@@ -32,7 +33,7 @@ class InqueryBox extends StatelessWidget {
             ],
           ),
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding:  EdgeInsets.all(20.w),
             child: Column(
               children: [
                 Row(
@@ -49,7 +50,7 @@ class InqueryBox extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: appTextColor3,
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -58,7 +59,7 @@ class InqueryBox extends StatelessWidget {
                                 color: appTextColor5,
                                 size: 18,
                               ),
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5.w),
                               Flexible(
                                 child: RichText(
                                   text: TextSpan(
@@ -85,7 +86,7 @@ class InqueryBox extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -94,7 +95,7 @@ class InqueryBox extends StatelessWidget {
                                 color: appTextColor5,
                                 size: 18,
                               ),
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5.w),
                               Flexible(
                                 child: RichText(
                                   text: TextSpan(
@@ -121,7 +122,7 @@ class InqueryBox extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -130,7 +131,7 @@ class InqueryBox extends StatelessWidget {
                                 color: appTextColor5,
                                 size: 18,
                               ),
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5.w),
                               Flexible(
                                 child: RichText(
                                   text: TextSpan(
@@ -157,7 +158,7 @@ class InqueryBox extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -166,7 +167,7 @@ class InqueryBox extends StatelessWidget {
                                 color: appTextColor5,
                                 size: 18,
                               ),
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5.w),
                               Expanded(
                                 child: RichText(
                                   text: TextSpan(
@@ -185,7 +186,7 @@ class InqueryBox extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -194,7 +195,7 @@ class InqueryBox extends StatelessWidget {
                                 color: appTextColor5,
                                 size: 18,
                               ),
-                              const SizedBox(width: 5),
+                                SizedBox(width: 5.w),
                               Flexible(
                                 child: RichText(
                                   text: TextSpan(
@@ -216,7 +217,7 @@ class InqueryBox extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    SizedBox(width: 10.w),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
@@ -226,7 +227,7 @@ class InqueryBox extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           color: appTextColor3,
                         ),
-                        const SizedBox(height: 5),
+                        SizedBox(height: 5.h),
                         AppText(
                           text: "12:30pm",
                           size: 10,
@@ -237,9 +238,9 @@ class InqueryBox extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding:  EdgeInsets.symmetric(horizontal: 10.w),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -249,21 +250,21 @@ class InqueryBox extends StatelessWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Icon(Icons.timer,size: 15,color: Colors.red,),
-                            SizedBox(width: 5,),
+                            Icon(Icons.timer,size: 15.w,color: Colors.red,),
+                            SizedBox(width: 5.w,),
                             AppText(
                               text: "02:53:49",
-                              size: 15,
+                              size: 11,
                               fontWeight: FontWeight.w400,
                               color: Colors.red,
                             ),
                           ],
                         )
                       ),
-                      const SizedBox(width: 20),
+                      SizedBox(width: 20.w),
                       SizedBox(
-                        width: 100,
-                        height: 30,
+                          width: 100.w,
+                        height: 40.h,
                         child: AppButton(
                           text: "Withdraw",
                           onPressed: onCancelTap,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/components/appbutton.dart';
 import 'package:fudikoclient/components/apptext.dart';
-import 'package:fudikoclient/screens/tabs/profile/restaurantProfile.dart';
 import 'package:fudikoclient/screens/tabs/reservation/qrcoupon.dart';
 import 'package:fudikoclient/screens/tabs/reservation/verifiedModal.dart';
 import 'package:fudikoclient/utils/constants.dart';
@@ -13,7 +13,7 @@ class ReservationBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+      padding:  EdgeInsets.only(bottom: 20.h),
       child: GestureDetector(
         onTap: (){
           Navigator.push(
@@ -35,7 +35,7 @@ class ReservationBox extends StatelessWidget {
             ],
           ),
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding:  EdgeInsets.all(20.w),
             child: Column(
               children: [
                 Row(
@@ -52,7 +52,7 @@ class ReservationBox extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: appTextColor3,
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -61,7 +61,7 @@ class ReservationBox extends StatelessWidget {
                                 color: appTextColor5,
                                 size: 18,
                               ),
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5.w),
                               Flexible(
                                 child: RichText(
                                   text: TextSpan(
@@ -88,7 +88,7 @@ class ReservationBox extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -97,7 +97,7 @@ class ReservationBox extends StatelessWidget {
                                 color: appTextColor5,
                                 size: 18,
                               ),
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5.w),
                               Flexible(
                                 child: RichText(
                                   text: TextSpan(
@@ -124,12 +124,12 @@ class ReservationBox extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Icon(Icons.calendar_month, color: appTextColor5, size: 18),
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5.w),
                               Flexible(
                                 child: RichText(
                                   text: TextSpan(
@@ -156,7 +156,7 @@ class ReservationBox extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -165,7 +165,7 @@ class ReservationBox extends StatelessWidget {
                                 color: appTextColor5,
                                 size: 18,
                               ),
-                              const SizedBox(width: 5),
+                                  SizedBox(width: 5.w),
                               Flexible(
                                 child: RichText(
                                   text: TextSpan(
@@ -192,7 +192,7 @@ class ReservationBox extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -201,7 +201,7 @@ class ReservationBox extends StatelessWidget {
                                 color: appTextColor5,
                                 size: 18,
                               ),
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5.w),
                               Flexible(
                                 child: RichText(
                                   text: TextSpan(
@@ -224,7 +224,7 @@ class ReservationBox extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    SizedBox(width: 10.w),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
@@ -234,7 +234,7 @@ class ReservationBox extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           color: appTextColor3,
                         ),
-                        const SizedBox(height: 5),
+                        SizedBox(height: 5.h),
                         AppText(
                           text: "12:30pm",
                           size: 10,
@@ -245,7 +245,7 @@ class ReservationBox extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -254,25 +254,26 @@ class ReservationBox extends StatelessWidget {
                       onTap: onCancelTap,
                       child: AppText(
                         text: "Cancel",
-                        size: 15,
+                        size: 12,
                         fontWeight: FontWeight.w400,
                         color: Colors.red,
                       ),
                     ),
-                    const SizedBox(width: 20),
+                        SizedBox(width: 20.w),
                     SizedBox(
-                      width: 100,
-                      height:50,
+                      width: 100.w,
+                      height:35.h,
                       child: AppButton(
                         text: "Coupon",
+
                         onPressed: () {
                           showModalBottomSheet(
                             backgroundColor: Colors.white,
                             context: context,
                             isScrollControlled: true,
-                            shape: const RoundedRectangleBorder(
+                            shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(25),
+                                top: Radius.circular(25.r),
                               ),
                             ),
                             builder: (context) {
@@ -280,8 +281,8 @@ class ReservationBox extends StatelessWidget {
                             },
                           );
                         },
-                        size: 15,
-                        borderRadius: 15,
+                        size: 12,
+                        borderRadius: 5.r,
                       ),
                     ),
                   ],

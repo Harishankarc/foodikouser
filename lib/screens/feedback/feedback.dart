@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/components/appbutton.dart';
 import 'package:fudikoclient/components/apptext.dart';
 import 'package:fudikoclient/components/descriptionBox.dart';
@@ -20,56 +21,43 @@ class _FeedBackState extends State<FeedBack> {
         backgroundColor: appSecondaryBackgroundColor,
         body: Stack(
           children: [
-            Positioned(
-              top: 30,
-              left: 30,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Icon(
-                  Icons.arrow_back_ios_new,
-                  color: appTextColor3,
-                  size: 28,
-                ),
-              ),
-            ),
+
 
             Positioned.fill(
               child: Center(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding:  EdgeInsets.symmetric(horizontal: 30.w),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
                         'assets/images/feedback.png',
-                        height: 160,
-                        width: 160,
+                        height: 160.h,
+                        width: 160.w,
                         fit: BoxFit.contain,
                       ),
-                      const SizedBox(height: 20),
+                      SizedBox(height: 20.h),
                       AppText(
                         text: "We Value Your",
-                        size: 32,
+                        size: 30,
                         fontWeight: FontWeight.w600,
                         color: appTextColor3,
                       ),
-                      const SizedBox(height: 8),
+                      SizedBox(height: 8.h),
                       AppText(
                         text: "Feedback!",
-                        size: 32,
+                        size: 30,
                         fontWeight: FontWeight.w600,
                         color: appTextColor3,
                       ),
-                      const SizedBox(height: 20),
+                      SizedBox(height: 20.h),
                       AppText(
                         text: "How would you rate your experience?",
-                        size: 17,
+                        size: 15,
                         fontWeight: FontWeight.w500,
                         color: appTextColor2,
                       ),
-                      const SizedBox(height: 20),
+                      SizedBox(height: 20.h),
                       Wrap(
                         spacing: 10,
                         runSpacing: 20,
@@ -81,15 +69,16 @@ class _FeedBackState extends State<FeedBack> {
                           );
                         }),
                       ),
-                      const SizedBox(height: 50),
+                      SizedBox(height: 50.h),
                       DescriptionTextArea(
                         hintText: "How was your experience?",
                         maxLength: 300,
                         icon: Icons.handshake,
                       ),
-                      const SizedBox(height: 50),
+                        SizedBox(height: 50.h),
                       SizedBox(
-                        width: 200,
+                        width: 150.w,
+                        height: 40.h,
                         child: AppButton(
                           text: "Submit",
                           onPressed: () {
@@ -97,11 +86,26 @@ class _FeedBackState extends State<FeedBack> {
                               isSubmitClicked = !isSubmitClicked;
                             });
                           },
-                          size: 17,
+                          size: 13,
+                          borderRadius: 10.r,
                         ),
                       ),
                     ],
                   ),
+                ),
+              ),
+            ),
+             Positioned(
+              top: 30.h,
+              left: 30.w,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(
+                  Icons.arrow_back_ios_new,
+                  color: appTextColor3,
+                  size: 28.r,
                 ),
               ),
             ),
@@ -118,13 +122,13 @@ class _FeedBackState extends State<FeedBack> {
         color: Colors.black54,
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
+            padding:  EdgeInsets.symmetric(horizontal: 30.w),
             child: Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(20),
+              padding:  EdgeInsets.all(20.h),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -137,13 +141,13 @@ class _FeedBackState extends State<FeedBack> {
                     },
                     child: Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.close, size: 25, color: appTextColor3),
+                      child: Icon(Icons.close, size: 25.r, color: appTextColor3),
                     ),
                   ),
                   Image.asset(
                     'assets/images/handshake.png',
-                    height: 90,
-                    width: 90,
+                    height: 90.h,
+                    width: 90.w,
                     fit: BoxFit.contain,
                   ),
                   AppText(
@@ -152,28 +156,28 @@ class _FeedBackState extends State<FeedBack> {
                     fontWeight: FontWeight.w600,
                     color: appLinkColor2,
                   ),
-                  SizedBox(height: 8),
+                  SizedBox(height: 8.h),
                   AppText(
                     text: "feedback!",
                     size: 22,
                     fontWeight: FontWeight.w700,
                     color: appLinkColor2,
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 15.h),
                   AppText(
                     text: "We appreciate your input and",
-                    size: 17,
+                    size: 15,
                     fontWeight: FontWeight.w400,
                     color: appTextColor2,
                   ),
-                  SizedBox(height: 4),
+                  SizedBox(height: 4.h),
                   AppText(
                     text: "will use it to improve.",
-                    size: 17,
+                      size: 15,
                     fontWeight: FontWeight.w400,
                     color: appTextColor2,
                   ),
-                  SizedBox(height: 35),
+                  SizedBox(height: 35.h),
                 ],
               ),
             ),

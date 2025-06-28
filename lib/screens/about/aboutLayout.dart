@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/screens/about/about1.dart';
 import 'package:fudikoclient/screens/about/about2.dart';
 import 'package:fudikoclient/screens/about/about3.dart';
@@ -68,15 +69,15 @@ class _AboutLayoutState extends State<AboutLayout> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
+                padding:  EdgeInsets.symmetric(vertical: 20.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
                     4,
                     (index) => Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 4),
-                      width: 10,
-                      height: 10,
+                      margin:  EdgeInsets.symmetric(horizontal: 4.w),
+                      width: 5.w,
+                      height:5.h,
                       decoration: BoxDecoration(
                         color: _currentIndex == index ? Colors.orange : Colors.grey,
                         shape: BoxShape.circle,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/components/appfilterdropdown.dart';
 import 'package:fudikoclient/components/appsearchbar.dart';
 import 'package:fudikoclient/components/apptext.dart';
@@ -28,11 +29,11 @@ class _HomeState extends State<Home> {
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 30,
-                  vertical: 30,
+                padding:  EdgeInsets.symmetric(
+                  horizontal: 30.w,
+                  vertical: 30.h,
                 ),
-                child: const AppSearchBar(),
+                child:  AppSearchBar(),
               ),
               Expanded(
                 child: SingleChildScrollView(
@@ -96,11 +97,11 @@ class _HomeState extends State<Home> {
 
   Widget _dropDownBuilder() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
+      padding:  EdgeInsets.symmetric(horizontal: 20.w),
       child: Row(
         children: [
           SizedBox(
-            width: 120,
+            width: 120.w,
             child: AppFilterDropDown(
               hint: "Filter",
               icon: Icons.tune_outlined,
@@ -121,7 +122,7 @@ class _HomeState extends State<Home> {
               },
             ),
           ),
-          const SizedBox(width: 20),
+          SizedBox(width: 20.w),
           Expanded(
             child: AppFilterDropDown(
               hint: "Today at 12:00PM",
@@ -150,18 +151,18 @@ class _HomeState extends State<Home> {
 
   Widget _mapBuilder() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
       child: Container(
         width: double.infinity,
-        height: 150,
+        height: 150.h,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(20.r),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.2),
               blurRadius: 10,
-              offset: const Offset(0, 4),
+              offset:  Offset(0, 4),
             ),
           ],
         ),
@@ -182,7 +183,7 @@ class _HomeState extends State<Home> {
     ];
 
     return SizedBox(
-      height: 250,
+      height: 250.h,
       child: ListView.builder(
         itemCount: colors.length,
         scrollDirection: Axis.horizontal,
@@ -191,10 +192,10 @@ class _HomeState extends State<Home> {
           final color1 = colors[index]['color1']!;
           final color2 = colors[index]['color2']!;
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
+            padding:  EdgeInsets.symmetric(horizontal: 5.w),
             child: Container(
-              height: 250,
-              width: 150,
+              height: 250.h,
+              width: 150.w,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 gradient: LinearGradient(
@@ -216,24 +217,24 @@ class _HomeState extends State<Home> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const AppText(
+                        AppText(
                           text: "20%-30%",
                           size: 20,
                           fontWeight: FontWeight.w700,
                           color: Colors.white,
                         ),
-                        const SizedBox(height: 4),
-                        const AppText(
+                        SizedBox(height: 4.h),
+                        AppText(
                           text: "Discount",
                           size: 18,
                           fontWeight: FontWeight.w400,
                           color: Colors.white,
                         ),
-                        const SizedBox(height: 15),
+                        SizedBox(height: 15.h),
                         Image.asset(
                           'assets/images/discounttag.png',
-                          height: 100,
-                          width: 100,
+                          height: 100.h,
+                          width: 100.w  ,
                           fit: BoxFit.contain,
                         ),
                       ],

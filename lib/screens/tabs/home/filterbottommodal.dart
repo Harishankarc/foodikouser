@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/components/appbutton.dart';
 import 'package:fudikoclient/components/apptext.dart';
 import 'package:fudikoclient/utils/constants.dart';
@@ -31,37 +32,37 @@ class _FilterBottomModalState extends State<FilterBottomModal> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 40,
-            height: 5,
+            width: 40.w,
+            height: 5.h,
             decoration: BoxDecoration(
               color: Colors.grey[300],
               borderRadius: BorderRadius.circular(10),
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16.h),
 
           Container(
             width: double.infinity,
-            height: MediaQuery.of(context).size.height * 0.5,
+            height: MediaQuery.of(context).size.height.h * 0.5,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
             ),
-            padding: const EdgeInsets.all(16),
+            padding:  EdgeInsets.all(16.w),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
-                      Icon(Icons.tune, size: 20, color: Colors.black),
-                      SizedBox(width: 10),
+                    children: [
+                      Icon(Icons.tune, size: 20.w, color: Colors.black),
+                      SizedBox(width: 10.w),
                       AppText(
                         text: "Filter",
                         size: 14,
@@ -70,7 +71,7 @@ class _FilterBottomModalState extends State<FilterBottomModal> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 50),
+                  SizedBox(height: 50.h),
                   Wrap(
                     alignment: WrapAlignment.start,
                     spacing: 10,
@@ -88,7 +89,7 @@ class _FilterBottomModalState extends State<FilterBottomModal> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  SizedBox(height: 50.h),
                   Wrap(
                     alignment: WrapAlignment.start,
                     spacing: 10,
@@ -106,7 +107,7 @@ class _FilterBottomModalState extends State<FilterBottomModal> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 50),
+                  SizedBox(height: 50.h),
                   Row(
                     children: [
                       Expanded(
@@ -136,7 +137,7 @@ class _FilterBottomModalState extends State<FilterBottomModal> {
                         ),
                       ),
                       // Text showing distance
-                      const SizedBox(width: 10),
+                      SizedBox(width: 10.w),
                       Text(
                         "${_currentDistance.toInt()} km",
                         style: const TextStyle(
@@ -147,7 +148,7 @@ class _FilterBottomModalState extends State<FilterBottomModal> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 50),
+                  SizedBox(height: 50.h),
                   SizedBox(
                     width: double.infinity,
                     child: Column(
@@ -160,11 +161,13 @@ class _FilterBottomModalState extends State<FilterBottomModal> {
                           color: Colors.black,
                           isCentered: true,
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 20.h),
                         SizedBox(
-                          width: 150,
-                          child: AppButton(text: "Apply", onPressed: () {}),
+                          width: 150.w,
+                          height: 50.h,
+                          child: AppButton(text: "Apply", onPressed: () {},borderRadius: 10.r,size: 15,),
                         ),
+                        SizedBox(height: 20.h),
                       ],
                     ),
                   )
@@ -181,14 +184,14 @@ class _FilterBottomModalState extends State<FilterBottomModal> {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        padding:  EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
         decoration: BoxDecoration(
           color: isSelected ? appTextColor3 : Colors.grey[400],
           borderRadius: BorderRadius.circular(20),
         ),
         child: Text(
           text,
-          style: TextStyle(
+            style: TextStyle(
             color: isSelected
                 ? Colors.white
                 : isSelected

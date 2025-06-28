@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/utils/constants.dart';
 
 class RestaurantCard extends StatelessWidget {
@@ -10,8 +11,8 @@ class RestaurantCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: Colors.white,
-      margin: const EdgeInsets.all(20),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      margin:  EdgeInsets.all(20.w),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
       elevation: 4,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,7 +25,7 @@ class RestaurantCard extends StatelessWidget {
                   borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                   child: Image.asset(
                     'assets/images/restaurantBanner.png',
-                    height: 180,
+                    height: 180.h,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
@@ -34,23 +35,23 @@ class RestaurantCard extends StatelessWidget {
                   top: 10,
                   left: 10,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
+                    padding:  EdgeInsets.symmetric(
+                      horizontal: 8.w,
+                      vertical: 4.h,
                     ),
                     decoration: BoxDecoration(
                       color: Colors.orange,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
                     child: Row(
-                      children: const [
-                        Icon(Icons.location_on, size: 14, color: Colors.white),
-                        SizedBox(width: 4),
+                          children: [
+                        Icon(Icons.location_on, size: 14.w, color: Colors.white),
+                        SizedBox(width: 4.w),
                         Text(
                           '12 km',
                           style: TextStyle(
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ],
@@ -60,25 +61,25 @@ class RestaurantCard extends StatelessWidget {
                 Positioned(
                   top: 10,
                   right: 10,
-                  child: Icon(Icons.favorite, color: Colors.orange),
+                  child: Icon(Icons.favorite, color: Colors.orange,size: 20.w,),
                 ),
                 Positioned(
                   bottom: 10,
                   left: 20,
                   child: RichText(
-                    text: const TextSpan(
+                    text:  TextSpan(
                       children: [
                         TextSpan(
                           text: "Bollywood ",
                           style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 30.sp,
                             fontWeight: FontWeight.w600,
                             color: Colors.white,
                           ),
                         ),
                         TextSpan(
                           text: "Restaurant",
-                          style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400, color: Colors.white),
+                          style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.w400, color: Colors.white),
                         ),
                       ],
                     ),
@@ -89,7 +90,7 @@ class RestaurantCard extends StatelessWidget {
           ),
 
           Padding(
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(15.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -98,44 +99,44 @@ class RestaurantCard extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.location_on, color: appTextColor3, size: 18),
-                        SizedBox(width: 5),
+                        Icon(Icons.location_on, color: appTextColor3, size: 18.w),
+                        SizedBox(width: 5.w),
                         Text(
                           "Ulitsa Serpukhovskiy Val-14",
-                          style: TextStyle(color: appTextColor3),
+                          style: TextStyle(color: appTextColor3,fontSize: 14.sp),
                         ),
                       ],
                     ),
                     Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 4,
+                      padding:  EdgeInsets.symmetric(
+                        horizontal: 10.w,
+                        vertical: 4.h,
                       ),
                       decoration: BoxDecoration(
                         color: Colors.orange,
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.r),
                       ),
                       child: GestureDetector(
                         onTap: onRatingOnClick,
-                        child: const Row(
+                        child:  Row(
                           children: [
-                            Icon(Icons.star, size: 14, color: Colors.white),
-                            SizedBox(width: 4),
-                            Text('4.8', style: TextStyle(color: Colors.white)),
+                            Icon(Icons.star, size: 14.w, color: Colors.white),
+                            SizedBox(width: 4.w),
+                            Text('4.8', style: TextStyle(color: Colors.white,fontSize: 14.sp)),
                           ],
                         ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 5),
+                SizedBox(height: 5.h),
                  Row(
                   children: [
-                    Icon(Icons.restaurant_menu, size: 18, color: appTextColor3),
-                    SizedBox(width: 5),
+                    Icon(Icons.restaurant_menu, size: 18.w, color: appTextColor3),
+                    SizedBox(width: 5.w),
                     Text(
                       "Chinese - Arabic - Indian",
-                      style: TextStyle(color: appTextColor3),
+                      style: TextStyle(color: appTextColor3,fontSize: 14.sp),
                     ),
                   ],
                 ),
@@ -144,10 +145,10 @@ class RestaurantCard extends StatelessWidget {
           ),
 
           SizedBox(
-            height: 180,
+            height: 180.h,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+              padding:  EdgeInsets.only(left: 15.w, right: 15.w, bottom: 15.h),
               children: List.generate(5, (index) {
                 final discounts = ['-40%', '-40%', '-30%', '-25%', '-40%'];
                 final texts = [
@@ -167,24 +168,24 @@ class RestaurantCard extends StatelessWidget {
                 final dates = ['TODAY', 'TODAY', 'TODAY', 'TODAY', 'MAY 1'];
 
                 return Padding(
-                  padding: const EdgeInsets.only(right: 5),
+                  padding:  EdgeInsets.only(right: 5.w),
                   child: Container(
-                    width: 100,
+                    width: 100.w,
                     decoration: BoxDecoration(
                       color: Colors.green.shade700,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
                     child: Stack(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(10),
+                          padding:  EdgeInsets.all(10.w),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
                                 discounts[index],
-                                style: const TextStyle(
-                                  fontSize: 20,
+                                style:  TextStyle(
+                                  fontSize: 20.sp,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -192,29 +193,29 @@ class RestaurantCard extends StatelessWidget {
                               Text(
                                 texts[index],
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 10,
+                                style:  TextStyle(
+                                  fontSize: 10.sp,
                                   color: Colors.white,
                                 ),
                               ),
-                              const Divider(color: Colors.white, thickness: 1),
+                              Divider(color: Colors.white, thickness: 1.w),
                               Text(
                                 dates[index],
-                                style: const TextStyle(
-                                  fontSize: 10,
+                                style:  TextStyle(
+                                  fontSize: 10.sp,
                                   color: Colors.white70,
                                 ),
                               ),
                               Container(
-                                padding: const EdgeInsets.all(5),
+                                padding:  EdgeInsets.all(5.w),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 child:  Text(
                                 times[index],
-                                style: const TextStyle(
-                                  fontSize: 10,
+                                style:  TextStyle(
+                                  fontSize: 10.sp,
                                   color: Colors.green,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -224,11 +225,11 @@ class RestaurantCard extends StatelessWidget {
                           ),
                         ),
                         Positioned(
-                          bottom: 45,
-                          right: -30,
+                          bottom: 45.h,
+                          right: -30.w,
                           child: Container(
-                            width: 50,
-                            height: 50,
+                            width: 50.w,
+                            height: 50.h,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               shape: BoxShape.circle,
@@ -236,11 +237,11 @@ class RestaurantCard extends StatelessWidget {
                           ),
                         ),
                         Positioned(
-                          bottom: 45,
-                          left: -30,
+                          bottom: 45.h,
+                          left: -30.w,
                           child: Container(
-                            width: 50,
-                            height: 50,
+                                width: 50.w,
+                            height: 50.h,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               shape: BoxShape.circle,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fudikoclient/components/apptext.dart';
 import 'package:fudikoclient/utils/constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DescriptionTextArea extends StatefulWidget {
   final String hintText;
@@ -33,10 +34,10 @@ class _DescriptionTextAreaState extends State<DescriptionTextArea> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding:  EdgeInsets.all(16.w),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -51,16 +52,16 @@ class _DescriptionTextAreaState extends State<DescriptionTextArea> {
           Row(
             children: [
               Icon(widget.icon, color: widget.iconColor ?? const Color(0xFFC95F05)),
-              SizedBox(width: 10),
-              widget.topHintText != null ? AppText(text: widget.topHintText!, size: 15, fontWeight: FontWeight.bold,color: appTextColor2,) : const SizedBox(),
+              SizedBox(width: 10.w),
+              widget.topHintText != null ? AppText(text: widget.topHintText!, size: 14, fontWeight: FontWeight.w600,color: appTextColor2,) : const SizedBox(),
               const Spacer(),
               Text(
                 '$_charCount/${widget.maxLength}',
-                style: const TextStyle(color: Colors.grey, fontSize: 12),
+                style:  TextStyle(color: Colors.grey, fontSize: 12.sp),
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8.h),
           TextField(
             controller: _controller,
             maxLines: widget.maxLines ?? 5,
@@ -72,7 +73,7 @@ class _DescriptionTextAreaState extends State<DescriptionTextArea> {
             decoration: InputDecoration(
               counterText: "",
               hintText: widget.hintText,
-              hintStyle: const TextStyle(color: Colors.grey,fontSize: 15),
+                hintStyle:  TextStyle(color: Colors.grey,fontSize: 12.sp),
               border: InputBorder.none,
             ),
           ),

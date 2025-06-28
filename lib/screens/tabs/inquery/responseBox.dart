@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/components/appbutton.dart';
 import 'package:fudikoclient/components/apptext.dart';
 import 'package:fudikoclient/utils/constants.dart';
@@ -12,7 +13,7 @@ class ResponseBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
+      padding:  EdgeInsets.only(bottom: 20.h),
       child: GestureDetector(
         onTap: () {
 
@@ -21,7 +22,7 @@ class ResponseBox extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(20.r),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.2),
@@ -31,7 +32,7 @@ class ResponseBox extends StatelessWidget {
             ],
           ),
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding:  EdgeInsets.all(20.w),
             child: Column(
               children: [
                 Row(
@@ -49,7 +50,7 @@ class ResponseBox extends StatelessWidget {
                             color: appTextColor3,
                           ),
 
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -58,7 +59,7 @@ class ResponseBox extends StatelessWidget {
                                 color: appTextColor5,
                                 size: 18,
                               ),
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5.w),
                               Flexible(
                                 child: RichText(
                                   text: TextSpan(
@@ -78,7 +79,7 @@ class ResponseBox extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -87,7 +88,7 @@ class ResponseBox extends StatelessWidget {
                                 color: appTextColor5,
                                 size: 18,
                               ),
-                              const SizedBox(width: 5),
+                                  SizedBox(width: 5.w),
                               Flexible(
                                 child: RichText(
                                   text: TextSpan(
@@ -114,7 +115,7 @@ class ResponseBox extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -123,7 +124,7 @@ class ResponseBox extends StatelessWidget {
                                 color: appTextColor5,
                                 size: 18,
                               ),
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5.w),
                               Expanded(
                                 child: RichText(
                                   text: TextSpan(
@@ -142,7 +143,7 @@ class ResponseBox extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: 10.h),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -151,7 +152,7 @@ class ResponseBox extends StatelessWidget {
                                 color: appTextColor5,
                                 size: 18,
                               ),
-                              const SizedBox(width: 5),
+                              SizedBox(width: 5.w),
                               Flexible(
                                 child: RichText(
                                   text: TextSpan(
@@ -173,7 +174,7 @@ class ResponseBox extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    SizedBox(width: 10.w),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
@@ -183,7 +184,7 @@ class ResponseBox extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           color: appTextColor3,
                         ),
-                        const SizedBox(height: 5),
+                        SizedBox(height: 5.h),
                         AppText(
                           text: "12:30pm",
                           size: 10,
@@ -194,7 +195,7 @@ class ResponseBox extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -204,41 +205,41 @@ class ResponseBox extends StatelessWidget {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Icon(Icons.manage_search_sharp, size: 12, color: appLinkColor2),
-                          SizedBox(width: 5),
+                          Icon(Icons.manage_search_sharp, size: 15.w, color: appLinkColor2),
+                          SizedBox(width: 5.w ),
                           AppText(
                             text: "View Request",
-                            size: 11,
+                            size: 12,
                             fontWeight: FontWeight.w400,
                             color: appLinkColor2,
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(width: 20),
+                    SizedBox(width: 20.w),
                     Column(
                       children: [
                         SizedBox(
-                          width: 100,
-                          height: 30,
+                          width: 100.w,
+                          height: 35.h,
                           child: AppButton(
                             text: "Decline",
                             onPressed: onCancelTap,
-                            size: 11,
-                            borderRadius: 10,
+                            size: 12,
+                            borderRadius: 5.r,
                             bgColor1: Colors.red,
                             bgColor2: Colors.red,
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         SizedBox(
-                          width: 100,
-                          height: 30,
+                          width: 100.w,
+                          height: 35.h,
                           child: AppButton(
                             text: "Accept",
                             onPressed: onAcceptTap,
-                            size: 11,
-                            borderRadius: 10,
+                            size: 12,
+                            borderRadius: 5.r,
                             bgColor1: Colors.green,
                             bgColor2: Colors.green,
                           ),

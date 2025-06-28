@@ -22,6 +22,7 @@ class _MainNavPageState extends State<MainNavPage> {
   @override
   void initState() {
     super.initState();
+    currentIndex = 0;
   }
 
   void onTabChanged(int index) {
