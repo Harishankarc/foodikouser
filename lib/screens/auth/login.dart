@@ -3,11 +3,89 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fudikoclient/components/appbutton.dart';
 import 'package:fudikoclient/components/apptext.dart';
 import 'package:fudikoclient/components/apptextfeild.dart';
+import 'package:fudikoclient/model/auth/login-model.dart';
 import 'package:fudikoclient/screens/auth/register.dart';
+import 'package:fudikoclient/screens/home/homepage.dart';
+import 'package:fudikoclient/service/auth/login-service.dart';
 import 'package:fudikoclient/utils/constants.dart';
+import 'package:fudikoclient/utils/tokens.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  LoginAuthService loginService = LoginAuthService();
+  bool isLoading = false;
+
+  @override
+  void dispose() {
+   _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
+  Future<void> loginUser() async {
+    setState(() {
+      isLoading = true;
+    });
+    final email = _email.text.trim();
+    final password = _password.text.trim();
+
+    if (email.isEmpty || password.isEmpty) {
+      if (!mounted) return;
+      setState(() {
+        isLoading = false;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please fill out all fields')),
+      );
+      return;
+    }
+
+    if (password.length < 6) {
+      if (!mounted) return;
+      setState(() {
+        isLoading = false;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Password must be at least 6 characters long'),
+        ),
+      );
+      return;
+    }
+
+    final user = UserLoginModel(username: email, password: password);
+
+    LoginResponseModel response = await loginService.loginUser(user);
+
+    if (!mounted) return;
+    setState(() {
+      isLoading = false;
+    });
+    if (response.status) {
+      await saveToken(response.token!);
+      if (!mounted) return;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
+      print(response.token);
+    } else {
+      if (!mounted) return;
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(response.message)));
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +120,9 @@ class Login extends StatelessWidget {
                     isObscure: true,
                   ),
                   SizedBox(height: 20.h),
-                  AppButton(text: 'Login', onPressed: () {}),
+                  AppButton(text: 'Login', onPressed: () {
+                    loginUser();
+                  }),
                   SizedBox(height: 20.h),
                   AppText(
                     text: "Forget Password?",

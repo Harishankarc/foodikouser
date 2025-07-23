@@ -37,6 +37,10 @@ dependencies:
   fl_chart: ^1.0.0
   flutter_switch: ^0.3.2
   flutter_screenutil: ^5.9.3
+  shared_preferences: ^2.5.3
+  dio: ^5.8.0+1
+  email_validator: ^3.0.0
+  flutter_typeahead: ^5.2.0
 
 dev_dependencies:
   flutter_test:

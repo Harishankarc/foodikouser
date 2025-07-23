@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fudikoclient/screens/about/aboutLayout.dart';
+import 'package:fudikoclient/screens/auth/info.dart';
 import 'package:fudikoclient/utils/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/rendering.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: appTextColor),
         fontFamily: 'Inter',
       ),
-      home: AboutLayout(),
+      home: InfoPage(),
     );
   }
 }
